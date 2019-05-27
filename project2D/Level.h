@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "TankController.h"
+#include "Ship.h"
 
 class Level :
 	public GameObject
@@ -11,5 +12,6 @@ public:
 
 private:
 	TankController* _tankController;
+	Ship* _ship;
 };
 
