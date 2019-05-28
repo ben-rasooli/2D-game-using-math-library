@@ -1,4 +1,6 @@
 #pragma once
+#include "Vector3.h"
+
 struct Vector2
 {
 	Vector2();
@@ -13,7 +15,10 @@ struct Vector2
 	Vector2 right();
 	Vector2 left();
 	static Vector2 lerp(Vector2 startPoint, Vector2 endPoint, float percent);
+	static float angle(Vector2 from, Vector2 to);
 	static Vector2 zero();
+
+	Vector2 swizzle(char x, char y);
 
 	//operstors
 	Vector2 operator+(Vector2& other);
@@ -24,6 +29,7 @@ struct Vector2
 	Vector2& operator-=(const Vector2& other);
 	float& operator[](int index);
 	operator float*();
+	operator Vector3();
 
 	float x, y;
 };

@@ -1,4 +1,6 @@
 #pragma once
+#include "Vector4.h"
+
 struct Vector3
 {
 	Vector3();
@@ -10,6 +12,7 @@ struct Vector3
 	Vector3 normalised();
 	float dot(const Vector3& other);
 	Vector3 cross(const Vector3& other);
+	static float angle(Vector3 from, Vector3 to);
 
 	//operstors
 	Vector3 operator+(Vector3& other);
@@ -20,6 +23,7 @@ struct Vector3
 	Vector3& operator-=(Vector3& other);
 	float& operator[](int index);
 	operator float*();
+	operator Vector4();
 
 	float x, y, z;
 };

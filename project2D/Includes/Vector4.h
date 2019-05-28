@@ -1,4 +1,5 @@
 #pragma once
+
 struct Vector4
 {
 	Vector4();
@@ -10,6 +11,7 @@ struct Vector4
 	Vector4 normalised();
 	float dot(const Vector4& other);
 	Vector4 cross(const Vector4& other);
+	static float angle(Vector4 from, Vector4 to);
 
 	//operstors
 	Vector4 operator+(Vector4& other);
