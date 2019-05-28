@@ -2,12 +2,17 @@
 
 Level::Level()
 {
-	_ship = new Ship("platform.png");
-	_ship->SetParent(this);
+	_platform = new Platform("platform.png");
+	_platform->SetParent(this);
 
-	//_collisionManager = new ColliderManager();
-	//_collisionManager->AddGameObject(_ship);
+	_collisionManager = new CollisionManager();
+	_collisionManager->AddGameObject(_platform, 0);
 }
 
-
 Level::~Level(){}
+
+void Level::Draw(aie::Renderer2D * renderer)
+{
+	GameObject::Draw(renderer);
+	_collisionManager->Draw(renderer);
+}

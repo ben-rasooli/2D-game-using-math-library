@@ -3,6 +3,7 @@
 #include "Renderer2D.h"
 #include "Texture.h"
 #include "Matrix3.h"
+#include "Collider.h"
 
 class GameObject
 {
@@ -31,6 +32,7 @@ public:
 	float GetRotation();
 	Vector2 GetScale();
 	GameObject* GetParent();
+	Collider* GetCollider() { return _collider; }
 
 protected:
 	GameObject* _parent;
@@ -40,6 +42,8 @@ protected:
 	Matrix3 _globalTransform;
 
 	aie::Texture* _texture;
+
+	Collider* _collider;
 
 };
 

@@ -5,12 +5,14 @@ GameObject::GameObject()
 {
 	_texture = nullptr;
 	_parent = nullptr;
+	_collider = nullptr;
 }
 
 GameObject::GameObject(const char * textureName)
 {
 	_texture = new aie::Texture(("./textures/" + std::string(textureName)).c_str());
 	_parent = nullptr;
+	_collider = nullptr;
 }
 
 GameObject::~GameObject()
@@ -24,12 +26,21 @@ GameObject::~GameObject()
 		delete _texture;
 		_texture = nullptr;
 	}
+
+	if (_collider)
+	{
+		delete _collider;
+		_collider = nullptr;
+	}
 }
 
 void GameObject::Update(float deltaTime)
 {
 	for (int i = 0; i < _childList.Count(); i++)
 		_childList[i]->Update(deltaTime);
+
+	if (_collider)
+		_collider->SetPosition(GetPosition());
 }
 
 void GameObject::Draw(aie::Renderer2D * renderer)

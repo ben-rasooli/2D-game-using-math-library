@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
-#include "ColliderManager.h"
-#include "Ship.h"
+#include "CollisionManager.h"
+#include "Platform.h"
 #include "Tank.h"
 
 class Level :
@@ -11,9 +11,11 @@ public:
 	Level();
 	~Level();
 
+	void Draw(aie::Renderer2D* renderer);
+
 private:
-	ColliderManager* _collisionManager;
-	Ship* _ship;
+	CollisionManager* _collisionManager;
+	Platform* _platform;
 	Tank* _tank;
 };
 

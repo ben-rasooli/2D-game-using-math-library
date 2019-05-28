@@ -39,6 +39,9 @@ void TankController::Update(float deltaTime)
 		accelerateRight(_accelerationRate * deltaTime);
 
 	keepVelocityWithingRange();
+
+	Translate(_velocity);
+	keepInsideShip();
 	
 	//-------------------------------------
 	//				Rotate
@@ -49,7 +52,6 @@ void TankController::Update(float deltaTime)
 	if (input->IsKeyDown(aie::INPUT_KEY_Q))
 		Rotate(3.0f * deltaTime);
 
-	Translate(_velocity);
 	GameObject::Update(deltaTime);
 }
 
@@ -120,4 +122,24 @@ void TankController::keepVelocityWithingRange()
 
 	if (_velocity.y < -_moveMaxSpeed)
 		_velocity.y = -_moveMaxSpeed;
+}
+
+void TankController::keepInsideShip()
+{
+	Vector2 localPosition = _localTransform.getPosition();
+	float walkableAreaExtend = 120.0f;
+
+	if (localPosition.x > walkableAreaExtend)
+		localPosition.x = walkableAreaExtend;
+
+	if (localPosition.x < -walkableAreaExtend)
+		localPosition.x = -walkableAreaExtend;
+
+	if (localPosition.y > walkableAreaExtend)
+		localPosition.y = walkableAreaExtend;
+					  
+	if (localPosition.y < -walkableAreaExtend)
+		localPosition.y = -walkableAreaExtend;
+
+	_localTransform.setPosition(localPosition);
 }

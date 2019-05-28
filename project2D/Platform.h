@@ -2,12 +2,12 @@
 #include "GameObject.h"
 #include "TankController.h"
 
-class Ship :
+class Platform :
 	public GameObject
 {
 public:
-	Ship(const char * textureName);
-	~Ship();
+	Platform(const char * textureName);
+	~Platform();
 
 	void Update(float deltaTime);
 	void Draw(aie::Renderer2D* renderer);

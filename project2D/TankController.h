@@ -26,5 +26,6 @@ private:
 	void accelerateLeft(float acceleration);
 	void reduceVelocity(Vector2 decelaratioVelocity);
 	void keepVelocityWithingRange();
+	void keepInsideShip();
 };
 

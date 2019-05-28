@@ -3,6 +3,7 @@
 
 Tank::Tank(const char * textureName) : GameObject(textureName)
 {
+	_collider = new Collider(Vector2(40, 40));
 }
 
 Tank::~Tank()

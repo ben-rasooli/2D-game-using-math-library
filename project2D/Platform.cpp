@@ -1,21 +1,21 @@
-#include "Ship.h"
+#include "Platform.h"
 #include "Input.h"
 
-Ship::Ship(const char * textureName) : GameObject(textureName)
+Platform::Platform(const char * textureName) : GameObject(textureName)
 {
 	_tankController = new TankController();
 	_tankController->SetParent(this);
 
-	//_collider = new Collider(Vector2(-40, -40), Vector2(40, 40));
+	_collider = new Collider(Vector2(160, 160));
 
 	_moveMaxSpeed = 10.0f;
-	_accelerationRate = 10.0f;
+	_accelerationRate = 5.0f;
 }
 
 
-Ship::~Ship() {}
+Platform::~Platform() {}
 
-void Ship::Update(float deltaTime)
+void Platform::Update(float deltaTime)
 {
 	aie::Input* input = aie::Input::GetInstance();
 
@@ -43,41 +43,41 @@ void Ship::Update(float deltaTime)
 	//				Rotate
 	//-------------------------------------
 	if (input->IsKeyDown(aie::INPUT_KEY_RIGHT_SHIFT))
-		Rotate(-3.0f * deltaTime);
+		Rotate(-1.0f * deltaTime);
 
 	if (input->IsKeyDown(aie::INPUT_KEY_RIGHT_CONTROL))
-		Rotate(3.0f * deltaTime);
+		Rotate(1.0f * deltaTime);
 
 	Translate(_velocity);
 	GameObject::Update(deltaTime);
 }
 
-void Ship::Draw(aie::Renderer2D * renderer)
+void Platform::Draw(aie::Renderer2D * renderer)
 {
 	GameObject::Draw(renderer);
 }
 
-void Ship::accelerateAhead(float acceleration)
+void Platform::accelerateAhead(float acceleration)
 {
 	_velocity += (acceleration * _localTransform.forward());
 }
 
-void Ship::accelerateBehind(float acceleration)
+void Platform::accelerateBehind(float acceleration)
 {
 	_velocity -= (acceleration * _localTransform.forward());
 }
 
-void Ship::accelerateRight(float acceleration)
+void Platform::accelerateRight(float acceleration)
 {
 	_velocity += (acceleration * _localTransform.right());
 }
 
-void Ship::accelerateLeft(float acceleration)
+void Platform::accelerateLeft(float acceleration)
 {
 	_velocity -= (acceleration * _localTransform.right());
 }
 
-void Ship::reduceVelocity(Vector2 decelaratioVelocity)
+void Platform::reduceVelocity(Vector2 decelaratioVelocity)
 {
 	if (_velocity.x > 0)
 	{
@@ -106,7 +106,7 @@ void Ship::reduceVelocity(Vector2 decelaratioVelocity)
 	}
 }
 
-void Ship::keepVelocityWithingRange()
+void Platform::keepVelocityWithingRange()
 {
 	if (_velocity.x > _moveMaxSpeed)
 		_velocity.x = _moveMaxSpeed;
