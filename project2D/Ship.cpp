@@ -1,15 +1,19 @@
 #include "Ship.h"
 #include "Input.h"
 
-
-Ship::Ship()
+Ship::Ship(const char * textureName) : GameObject(textureName)
 {
+	_tankController = new TankController();
+	_tankController->SetParent(this);
+
+	//_collider = new Collider(Vector2(-40, -40), Vector2(40, 40));
+
+	_moveMaxSpeed = 10.0f;
+	_accelerationRate = 10.0f;
 }
 
 
-Ship::~Ship()
-{
-}
+Ship::~Ship() {}
 
 void Ship::Update(float deltaTime)
 {
@@ -21,16 +25,16 @@ void Ship::Update(float deltaTime)
 	//-------------------------------------
 	//				Translate
 	//-------------------------------------
-	if (input->IsKeyDown(aie::INPUT_KEY_W))
+	if (input->IsKeyDown(aie::INPUT_KEY_UP))
 		accelerateAhead(_accelerationRate * deltaTime);
 
-	if (input->IsKeyDown(aie::INPUT_KEY_S))
+	if (input->IsKeyDown(aie::INPUT_KEY_DOWN))
 		accelerateBehind(_accelerationRate * deltaTime);
 
-	if (input->IsKeyDown(aie::INPUT_KEY_A))
+	if (input->IsKeyDown(aie::INPUT_KEY_LEFT))
 		accelerateLeft(_accelerationRate * deltaTime);
 
-	if (input->IsKeyDown(aie::INPUT_KEY_D))
+	if (input->IsKeyDown(aie::INPUT_KEY_RIGHT))
 		accelerateRight(_accelerationRate * deltaTime);
 
 	keepVelocityWithingRange();
@@ -38,10 +42,10 @@ void Ship::Update(float deltaTime)
 	//-------------------------------------
 	//				Rotate
 	//-------------------------------------
-	if (input->IsKeyDown(aie::INPUT_KEY_E))
+	if (input->IsKeyDown(aie::INPUT_KEY_RIGHT_SHIFT))
 		Rotate(-3.0f * deltaTime);
 
-	if (input->IsKeyDown(aie::INPUT_KEY_Q))
+	if (input->IsKeyDown(aie::INPUT_KEY_RIGHT_CONTROL))
 		Rotate(3.0f * deltaTime);
 
 	Translate(_velocity);
