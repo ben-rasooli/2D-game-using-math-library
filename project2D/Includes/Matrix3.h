@@ -14,6 +14,7 @@ struct Matrix3
 	void setRotateX(float radians);
 	void setRotateY(float radians);
 	void setRotateZ(float radians);
+	void setRotateZ(Vector2 forward);
 
 	void setPosition(float x, float y);
 	void setPosition(Vector2 pos);

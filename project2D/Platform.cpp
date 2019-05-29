@@ -1,5 +1,6 @@
 #include "Platform.h"
 #include "Input.h"
+#include <iostream>
 
 Platform::Platform(const char * textureName) : GameObject(textureName)
 {
@@ -47,6 +48,23 @@ void Platform::Update(float deltaTime)
 
 	if (input->IsKeyDown(aie::INPUT_KEY_RIGHT_CONTROL))
 		Rotate(1.0f * deltaTime);
+
+	//-------------------------------------
+	//				LookAtMouse
+	//-------------------------------------
+	if (input->IsKeyDown(aie::INPUT_KEY_RIGHT_ALT))
+	{
+		Vector2 mousePosition = 
+		{
+			(float)(input->GetMouseX()),
+			(float)(input->GetMouseY())
+		};
+
+		Vector2 localPosition = _localTransform.getPosition();
+		Vector2 directionToMouse = mousePosition - localPosition;
+		directionToMouse.normalise();
+		_localTransform.setRotateZ(directionToMouse);
+	}
 
 	Translate(_velocity);
 	GameObject::Update(deltaTime);
