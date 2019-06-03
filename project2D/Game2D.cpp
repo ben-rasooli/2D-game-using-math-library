@@ -70,12 +70,7 @@ void Game2D::Draw()
 	
 	// Draw some text.
 	float windowHeight = (float)application->GetWindowHeight();
-	char fps[32];
-	sprintf_s(fps, 32, "FPS: %i", application->GetFPS());
-	m_2dRenderer->DrawText2D(m_font, fps, 15.0f, windowHeight - 32.0f);
-	m_2dRenderer->DrawText2D(m_font, "Arrow keys to move.", 15.0f, windowHeight - 64.0f);
-	m_2dRenderer->DrawText2D(m_font, "WASD to move camera.", 15.0f, windowHeight - 96.0f);
-	m_2dRenderer->DrawText2D(m_font, "Press ESC to quit!", 15.0f, windowHeight - 128.0f);
+	m_2dRenderer->DrawText2D(m_font, "Press ESC to quit!", 15.0f, windowHeight - 30.0f);
 
 	// Done drawing sprites. Must be called at the end of the Draw().
 	m_2dRenderer->End();
