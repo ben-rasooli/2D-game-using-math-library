@@ -4,11 +4,9 @@
 
 Turret::Turret(const char * textureName) : GameObject(textureName)
 {
-	_collider = new CircleCollider(30.0f);
+	_collider = new CircleCollider(25.0f);
 	CollisionManager::I()->AddGameObject(this, CollisionLayer::ITEM);
 }
-
-Turret::~Turret() {}
 
 void Turret::Update(float deltaTime)
 {
@@ -44,6 +42,6 @@ void Turret::Draw(aie::Renderer2D * renderer)
 
 void Turret::OnCollision(GameObject * other)
 {
-	_parent = other;
+	_parent = other->GetParent();
 	_localTransform.setPosition(Vector2(0, 0));
 }

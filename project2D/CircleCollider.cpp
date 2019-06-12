@@ -8,7 +8,7 @@ CircleCollider::CircleCollider(float radius)
 
 void CircleCollider::Draw(aie::Renderer2D * renderer)
 {
-	renderer->SetRenderColour(0.0f, 0.0f, 1.0f, 0.5f);
+	renderer->SetRenderColour(0.0f, 0.0f, 1.0f, 0.1f);
 	renderer->DrawCircle(_position.x, _position.y, _radius);
 }
 

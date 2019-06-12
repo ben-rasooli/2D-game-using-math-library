@@ -7,11 +7,13 @@ Platform::Platform(const char * textureName) : GameObject(textureName)
 	_tankController = new TankController();
 	_tankController->SetParent(this);
 
-	/*_collider = new BoxCollider(Vector2(160, 160));
-	CollisionManager::I()->AddGameObject(this, CollisionLayer::DEFAULT);*/
+	_collider = new BoxCollider(Vector2(160, 160));
+	CollisionManager::I()->AddGameObject(this, CollisionLayer::DEFAULT);
 
 	_moveMaxSpeed = 10.0f;
 	_accelerationRate = 5.0f;
+
+	_localTransform.setPosition(Vector2(700.0f, 300.0f));
 }
 
 

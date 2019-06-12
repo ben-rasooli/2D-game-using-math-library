@@ -13,9 +13,6 @@ TankController::TankController()
 	_accelerationRate = 10.0f;
 }
 
-
-TankController::~TankController(){}
-
 void TankController::Update(float deltaTime)
 {
 	aie::Input* input = aie::Input::GetInstance();
