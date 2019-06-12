@@ -1,5 +1,5 @@
-#include "Platform.h"
 #include "Input.h"
+#include "Platform.h"
 #include <iostream>
 
 Platform::Platform(const char * textureName) : GameObject(textureName)
@@ -7,7 +7,8 @@ Platform::Platform(const char * textureName) : GameObject(textureName)
 	_tankController = new TankController();
 	_tankController->SetParent(this);
 
-	_collider = new Collider(Vector2(160, 160));
+	/*_collider = new BoxCollider(Vector2(160, 160));
+	CollisionManager::I()->AddGameObject(this, CollisionLayer::DEFAULT);*/
 
 	_moveMaxSpeed = 10.0f;
 	_accelerationRate = 5.0f;
@@ -20,7 +21,7 @@ void Platform::Update(float deltaTime)
 {
 	aie::Input* input = aie::Input::GetInstance();
 
-	if (input->GetPressedKeys().size() == 0)
+	if (!input->IsKeyDown(aie::INPUT_KEY_UP) && !input->IsKeyDown(aie::INPUT_KEY_DOWN))
 		reduceVelocity(-3 * _velocity * deltaTime);
 
 	//-------------------------------------

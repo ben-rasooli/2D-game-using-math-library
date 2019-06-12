@@ -1,6 +1,8 @@
 #pragma once
 #include "GameObject.h"
 #include "TankController.h"
+#include "CollisionManager.h"
+#include "BoxCollider.h"
 
 class Platform :
 	public GameObject

@@ -52,6 +52,10 @@ void GameObject::Draw(aie::Renderer2D * renderer)
 		_childList[i]->Draw(renderer);
 }
 
+void GameObject::OnCollision(GameObject * other)
+{
+}
+
 void GameObject::UpdateGlobalTransform()
 {
 	if (_parent)

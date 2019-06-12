@@ -11,10 +11,10 @@ public:
 	Level();
 	~Level();
 
+	void Update(float deltaTime);
 	void Draw(aie::Renderer2D* renderer);
 
 private:
-	CollisionManager* _collisionManager;
 	Platform* _platform;
 	Tank* _tank;
 };

@@ -20,7 +20,7 @@ void TankController::Update(float deltaTime)
 {
 	aie::Input* input = aie::Input::GetInstance();
 
-	if (input->GetPressedKeys().size() == 0)
+	if (!input->IsKeyDown(aie::INPUT_KEY_UP) && !input->IsKeyDown(aie::INPUT_KEY_DOWN))
 		reduceVelocity(-3 * _velocity * deltaTime);
 
 	//-------------------------------------

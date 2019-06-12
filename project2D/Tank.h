@@ -1,5 +1,8 @@
 #pragma once
 #include "GameObject.h"
+#include "CollisionManager.h"
+#include "BoxCollider.h"
+
 class Tank :
 	public GameObject
 {
