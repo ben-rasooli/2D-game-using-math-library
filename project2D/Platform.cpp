@@ -16,9 +16,6 @@ Platform::Platform(const char * textureName) : GameObject(textureName)
 	_localTransform.setPosition(Vector2(700.0f, 300.0f));
 }
 
-
-Platform::~Platform() {}
-
 void Platform::Update(float deltaTime)
 {
 	aie::Input* input = aie::Input::GetInstance();

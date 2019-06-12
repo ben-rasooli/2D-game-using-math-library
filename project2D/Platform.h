@@ -9,7 +9,6 @@ class Platform :
 {
 public:
 	Platform(const char * textureName);
-	~Platform();
 
 	void Update(float deltaTime);
 	void Draw(aie::Renderer2D* renderer);

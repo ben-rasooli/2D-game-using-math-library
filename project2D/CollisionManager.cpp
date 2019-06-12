@@ -6,6 +6,7 @@ CollisionManager::CollisionManager()
 {
 	ColliderSet* colSet_default = new ColliderSet();
 	colSet_default->Layer = CollisionLayer::DEFAULT;
+	colSet_default->CollidableLayers.PushBack(CollisionLayer::Obstacle);
 	_colliderSets.PushBack(colSet_default);
 
 	ColliderSet* colSet_tank = new ColliderSet();

@@ -6,7 +6,8 @@ enum CollisionLayer
 {
 	DEFAULT,
 	ITEM,
-	TANK
+	TANK,
+	Obstacle
 };
 
 struct ColliderSet

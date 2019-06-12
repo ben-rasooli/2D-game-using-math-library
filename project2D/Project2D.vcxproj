@@ -183,6 +183,7 @@
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="Rock.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="TankController.cpp" />
     <ClCompile Include="Turret.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Platform.h" />
+    <ClInclude Include="Rock.h" />
     <ClInclude Include="Tank.h" />
     <ClInclude Include="TankController.h" />
     <ClInclude Include="Turret.h" />
