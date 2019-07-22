@@ -174,13 +174,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoxCollider.cpp" />
+    <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Game2D.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="TankController.cpp" />
@@ -188,12 +189,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DataStructuresLib\List.h" />
+    <ClInclude Include="BoxCollider.h" />
+    <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="ColliderSet.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Game2D.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Level.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Tank.h" />
     <ClInclude Include="TankController.h" />

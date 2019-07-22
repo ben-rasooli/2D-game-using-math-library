@@ -8,7 +8,6 @@ class TankController :
 {
 public:
 	TankController();
-	~TankController();
 
 	void Update(float deltaTime);
 	void Draw(aie::Renderer2D* renderer);

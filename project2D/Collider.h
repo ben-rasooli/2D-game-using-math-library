@@ -1,22 +1,35 @@
 #pragma once
 #include "Vector2.h"
+#include "Renderer2D.h"
+#include <cmath>
+
+enum ColliderType
+{
+	BoxColliderType,
+	CircleColliderType
+};
+
+class BoxCollider;
+class CircleCollider;
 
 class Collider
 {
 public:
-	Collider(Vector2 extend);
-	~Collider();
+	Collider(ColliderType type);
+	virtual ~Collider() {};
+
+	ColliderType GetType() { return _type; }
+
+	virtual void Draw(aie::Renderer2D* renderer) = 0;
 
 	void SetPosition(Vector2 position);
-	bool IsCollidingWith(Collider other);
+	Vector2 GetPosition() { return _position; }
 
-	Vector2 GetMin();
-	Vector2 GetMax();
-	Vector2 GetExtend() { return _extend; }
+	virtual bool IsCollidingWith(Collider* other) = 0;
 
-private:
+protected:
 	Vector2 _position;
-	Vector2 _extend;
-
+	ColliderType _type;
+	Vector2 clamp(Vector2 position, Vector2 min, Vector2 max);
 };
 
