@@ -7,8 +7,6 @@ Level::Level()
 	_platform->SetParent(this);
 }
 
-Level::~Level(){}
-
 void Level::Update(float deltaTime)
 {
 	CollisionManager::I()->Update(deltaTime);

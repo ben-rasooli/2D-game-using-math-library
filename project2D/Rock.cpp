@@ -5,7 +5,7 @@ Rock::Rock(Vector2 position) : GameObject("rock_large.png")
 	_localTransform.setPosition(position);
 
 	_collider = new BoxCollider(Vector2(40, 40));
-	CollisionManager::I()->AddGameObject(this, CollisionLayer::Obstacle);
+	CollisionManager::I()->AddGameObject(this, CollisionLayer::DEFAULT);
 }
 
 void Rock::OnCollision(GameObject * other)
